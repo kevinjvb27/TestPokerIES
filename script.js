@@ -201,7 +201,7 @@ function poker(hand1, hand2) {
       result.winnerHandType = tipoDeMano1[1];
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[3]));
-      console.log(result.compositionWinnerHand);
+      result.compositionWinnerHand.reverse();
       return result;
     } else if (manoGanadora[1] == 'ThreeOfAKind') {
       const result = new Result();

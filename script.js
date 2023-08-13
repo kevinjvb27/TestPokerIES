@@ -194,7 +194,7 @@ function poker(hand1, hand2) {
   const manoGanadora = determinarGanador(tipoDeMano1, tipoDeMano2);
   console.log(manoGanadora);
 
-  if (manoGanadora[0] == 'hand1fas') {
+  if (manoGanadora[0] == 'hand1') {
     const result = new Result();
     result.winnerHand = tipoDeMano1[0];
     result.winnerHandType = tipoDeMano1[1];

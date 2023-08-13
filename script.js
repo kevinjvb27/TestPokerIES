@@ -122,7 +122,6 @@ function poker(hand1, hand2) {
   const tipoDeMano1 = determinarTipoDeMano1(ordenHand1);
   console.log('Tipo de mano:', tipoDeMano1);
 
-
   function determinarTipoDeMano2(mano) {
     const contadorNumeros = {};
     mano.forEach((numero) => {
@@ -172,20 +171,20 @@ function poker(hand1, hand2) {
   // Función para comparar manos y determinar al ganador
   function determinarGanador(tipoDeMano1, tipoDeMano2) {
     const jerarquia = [
-      'Four of a kind',
-      'Three of a kind',
-      'Two pairs',
-      'One pair',
-      'Highest card',
+      'FourOfAKind',
+      'ThreeOfAKind',
+      'TwoPair',
+      'OnePair',
+      'HighCard',
     ];
 
-    const indexMano1 = jerarquia.indexOf(tipoDeMano1);
-    const indexMano2 = jerarquia.indexOf(tipoDeMano2);
+    const indexMano1 = jerarquia.indexOf(tipoDeMano1[1]);
+    const indexMano2 = jerarquia.indexOf(tipoDeMano2[1]);
 
     if (indexMano1 < indexMano2) {
-      return 'Mano 2 gana';
-    } else if (indexMano2 < indexMano1) {
       return 'Mano 1 gana';
+    } else if (indexMano2 < indexMano1) {
+      return 'Mano 2 gana';
     } else {
       return 'Empate';
     }

@@ -194,38 +194,6 @@ function poker(hand1, hand2) {
   const manoGanadora = determinarGanador(tipoDeMano1, tipoDeMano2);
   console.log(manoGanadora);
 
-  const result = new Result();
-
-  switch (manoGanadora) {
-    case (manoGanadora):
-      result.winnerHand = tipoDeMano1[0];
-      result.winnerHandType = tipoDeMano1[1];
-      result.compositionWinnerHand.push(tipoDeMano1[2]);
-      break;
-
-    case 'Mano 2 gana':
-      result.winnerHand = tipoDeMano2[0];
-      result.winnerHandType = tipoDeMano2[1];
-      result.compositionWinnerHand.push(tipoDeMano2[2]);
-      break;
-
-    case 'Empate':
-      if (tipoDeMano1[2] > tipoDeMano2[2]) {
-        result.winnerHand = tipoDeMano1[0];
-        result.winnerHandType = tipoDeMano1[1];
-        result.compositionWinnerHand.push(tipoDeMano1[2]);
-      } else if (tipoDeMano2[2] > tipoDeMano1[2]) {
-        result.winnerHand = tipoDeMano2[0];
-        result.winnerHandType = tipoDeMano2[1];
-        result.compositionWinnerHand.push(tipoDeMano2[2]);
-      }
-      break;
-
-    default:
-      // Manejo de caso no esperado
-      break;
-  }
-  
   if (manoGanadora[0] == 'hand1') {
     const result = new Result();
     result.winnerHand = tipoDeMano1[0];

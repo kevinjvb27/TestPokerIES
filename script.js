@@ -198,9 +198,15 @@ function poker(hand1, hand2) {
     const result = new Result();
     result.winnerHand = tipoDeMano1[0];
     result.winnerHandType = tipoDeMano1[1];
-    result.compositionWinnerHand.push(nombreDeCartatipoDeMano1[2]);
+    result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
     return result;
-  } else if (manoGanadora == 'Mano 2 gana') [];
+  } else if (manoGanadora == 'Mano 2 gana') {
+    const result = new Result();
+    result.winnerHand = tipoDeMano2[0];
+    result.winnerHandType = tipoDeMano2[1];
+    result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano2[2]));
+    return result;
+  }
 
   /*//Analisis de HighCard:
   function testHighCard(hand1, hand2) {

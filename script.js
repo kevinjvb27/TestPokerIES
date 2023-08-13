@@ -86,15 +86,35 @@ function poker(hand1, hand2) {
     const numRepeticiones = Object.values(contadorNumeros);
 
     if (numRepeticiones.includes(4)) {
-      return 'Four of a kind';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 4
+      );
+      return ['hand1', 'FourOfAKind', parseInt(numeroRepetido)];
     } else if (numRepeticiones.includes(3)) {
-      return 'Three of a kind';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 3
+      );
+      return ['hand1', 'ThreeOfAKind', parseInt(numeroRepetido)];
     } else if (numRepeticiones.includes(2) && numNumerosDiferentes === 3) {
-      return 'Two pairs';
+      const numerosRepetidos = Object.keys(contadorNumeros).filter(
+        (numero) => contadorNumeros[numero] === 2
+      );
+      const numerosRepetidosNumericos = numerosRepetidos.map((num) =>
+        parseInt(num)
+      );
+      return [
+        'hand1',
+        'TwoPair',
+        numerosRepetidosNumericos[0],
+        numerosRepetidosNumericos[1],
+      ];
     } else if (numRepeticiones.includes(2)) {
-      return 'One pair';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 2
+      );
+      return ['hand1', 'OnePair', parseInt(numeroRepetido)];
     } else {
-      return `Highest card: ${Math.max(...mano)}`;
+      return ['hand1', 'HighCard', Math.max(...mano)];
     }
   }
 

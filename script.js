@@ -42,9 +42,9 @@ function poker(hand1, hand2) {
       8: '8',
       9: '9',
       10: '10',
-      11: 'Jota',
-      12: 'Q',
-      13: 'K',
+      11: 'Jack',
+      12: 'Queen',
+      13: 'King',
       14: 'As',
     };
     return nameCarta[nombreCarta];
@@ -69,12 +69,10 @@ function poker(hand1, hand2) {
   for (var i = 0; i <= 12; i += 3) {
     ordenHand1.push(numeroDeCarta(hand1[i]));
   }
-  ordenHand1.reverse();
 
   for (var i = 0; i <= 12; i += 3) {
     ordenHand2.push(numeroDeCarta(hand2[i]));
   }
-  ordenHand2.reverse();
 
   //ANALISIS DE QUE MANO ES CADA UNA
 

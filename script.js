@@ -81,9 +81,12 @@ function poker(hand1, hand2) {
     mano.forEach((numero) => {
       contadorNumeros[numero] = (contadorNumeros[numero] || 0) + 1;
     });
+    console.log(contadorNumeros);
 
     const numNumerosDiferentes = Object.keys(contadorNumeros).length;
+    console.log('numNumerosDiferentes: ', numNumerosDiferentes);
     const numRepeticiones = Object.values(contadorNumeros);
+    console.log('numRepeticiones: ', numRepeticiones);
 
     if (numRepeticiones.includes(4)) {
       const numeroRepetido = Object.keys(contadorNumeros).find(
@@ -120,7 +123,7 @@ function poker(hand1, hand2) {
 
   // Prueba que muestra que tipo de mano es en consola
   const tipoDeMano1 = determinarTipoDeMano1(ordenHand1);
-  console.log('Tipo de mano:', tipoDeMano1);
+  console.log('Tipo de mano 1:', tipoDeMano1);
 
   function determinarTipoDeMano2(mano) {
     const contadorNumeros = {};
@@ -166,7 +169,7 @@ function poker(hand1, hand2) {
 
   // Prueba que muestra que tipo de mano es en consola
   const tipoDeMano2 = determinarTipoDeMano2(ordenHand2);
-  console.log('Tipo de mano:', tipoDeMano2);
+  console.log('Tipo de mano 2:', tipoDeMano2);
 
   // Función para comparar manos y determinar al ganador
   function determinarGanador(tipoDeMano1, tipoDeMano2) {
@@ -192,7 +195,7 @@ function poker(hand1, hand2) {
 
   // Ejemplos de tipos de manos de poker
   const manoGanadora = determinarGanador(tipoDeMano1, tipoDeMano2);
-  console.log(manoGanadora);
+  console.log('Mano ganadora: ', manoGanadora);
 
   if (manoGanadora[0] == 'hand1') {
     if (manoGanadora[1] == 'TwoPair') {
@@ -202,12 +205,6 @@ function poker(hand1, hand2) {
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[3]));
       result.compositionWinnerHand.reverse();
-      return result;
-    } else if (manoGanadora[1] == 'ThreeOfAKind') {
-      const result = new Result();
-      result.winnerHand = tipoDeMano1[0];
-      result.winnerHandType = tipoDeMano1[1];
-      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
       return result;
     } else {
       const result = new Result();
@@ -224,12 +221,6 @@ function poker(hand1, hand2) {
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
       result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[3]));
       result.compositionWinnerHand.reverse();
-      return result;
-    } else if (manoGanadora[1] == 'ThreeOfAKind') {
-      const result = new Result();
-      result.winnerHand = tipoDeMano1[0];
-      result.winnerHandType = tipoDeMano1[1];
-      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
       return result;
     } else {
       const result = new Result();

@@ -191,8 +191,16 @@ function poker(hand1, hand2) {
   }
 
   // Ejemplos de tipos de manos de poker
-  const resultado = determinarGanador(tipoDeMano1, tipoDeMano2);
-  console.log(resultado);
+  const manoGanadora = determinarGanador(tipoDeMano1, tipoDeMano2);
+  console.log(manoGanadora);
+
+  if (manoGanadora == 'Mano 1 gana') {
+    const result = new Result();
+    result.winnerHand = tipoDeMano1[0];
+    result.winnerHandType = tipoDeMano1[1];
+    result.compositionWinnerHand.push(nombreDeCartatipoDeMano1[2]);
+    return result;
+  } else if (manoGanadora == 'Mano 2 gana') [];
 
   /*//Analisis de HighCard:
   function testHighCard(hand1, hand2) {
@@ -228,9 +236,9 @@ function poker(hand1, hand2) {
   result.compositionWinnerHand.push(highCard[2]);
   return result;*/
 
-  const result = new Result();
+  /*const result = new Result();
   result.winnerHand = 'hand1';
   result.winnerHandType = 'HighCard';
   result.compositionWinnerHand.push('As');
-  return result;
+  return result;*/
 }

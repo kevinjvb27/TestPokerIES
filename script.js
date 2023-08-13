@@ -195,11 +195,27 @@ function poker(hand1, hand2) {
   console.log(manoGanadora);
 
   if (manoGanadora[0] == 'hand1') {
-    const result = new Result();
-    result.winnerHand = tipoDeMano1[0];
-    result.winnerHandType = tipoDeMano1[1];
-    result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
-    return result;
+    if (manoGanadora[1] == 'TwoPair') {
+      const result = new Result();
+      result.winnerHand = tipoDeMano1[0];
+      result.winnerHandType = tipoDeMano1[1];
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[3]));
+      console.log(result.compositionWinnerHand);
+      return result;
+    } else if (manoGanadora[1] == 'ThreeOfAKind') {
+      const result = new Result();
+      result.winnerHand = tipoDeMano1[0];
+      result.winnerHandType = tipoDeMano1[1];
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
+      return result;
+    } else {
+      const result = new Result();
+      result.winnerHand = tipoDeMano1[0];
+      result.winnerHandType = tipoDeMano1[1];
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
+      return result;
+    }
   } else if (manoGanadora[0] == 'hand2') {
     const result = new Result();
     result.winnerHand = tipoDeMano2[0];

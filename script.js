@@ -206,6 +206,20 @@ function poker(hand1, hand2) {
     result.winnerHandType = tipoDeMano2[1];
     result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano2[2]));
     return result;
+  } else if (manoGanadora == 'Empate') {
+    if (tipoDeMano1[2] > tipoDeMano2[2]) {
+      const result = new Result();
+      result.winnerHand = tipoDeMano1[0];
+      result.winnerHandType = tipoDeMano1[1];
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano1[2]));
+      return result;
+    } else if (tipoDeMano2[2] > tipoDeMano1[2]) {
+      const result = new Result();
+      result.winnerHand = tipoDeMano2[0];
+      result.winnerHandType = tipoDeMano2[1];
+      result.compositionWinnerHand.push(nombreDeCarta(tipoDeMano2[2]));
+      return result;
+    }
   }
 
   /*//Analisis de HighCard:

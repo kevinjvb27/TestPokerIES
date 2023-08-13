@@ -20,6 +20,7 @@ describe('TwoPair', function () {
   });
 });
 describe('HighCard', function () {
+  //En la prueba gana hand2, revisar para el pass
   const hand1 = '2H 3D 5S 9C KD';
   const hand2 = '2C 3H 4S 8C AH';
   it('hand1 win', function () {
@@ -80,7 +81,7 @@ describe('OnePair', function () {
   });
 });
 describe('ThreeOfAKind', function () {
-  const hand1 = '2H 3D 5S KC KD';
+  const hand1 = '2H 3D 5S KC KD'; //Se deben tener 3 King para la prueba de ThreeOfAKind, revisar para el pass.
   const hand2 = '2C 3H 4S 8C AH';
   it('hand1 win', function () {
     const jsonData = poker(hand1, hand2);

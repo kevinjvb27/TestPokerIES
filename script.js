@@ -122,6 +122,7 @@ function poker(hand1, hand2) {
   const tipoDeMano1 = determinarTipoDeMano1(ordenHand1);
   console.log('Tipo de mano:', tipoDeMano1);
 
+
   function determinarTipoDeMano2(mano) {
     const contadorNumeros = {};
     mano.forEach((numero) => {
@@ -132,15 +133,35 @@ function poker(hand1, hand2) {
     const numRepeticiones = Object.values(contadorNumeros);
 
     if (numRepeticiones.includes(4)) {
-      return 'Four of a kind';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 4
+      );
+      return ['hand2', 'FourOfAKind', parseInt(numeroRepetido)];
     } else if (numRepeticiones.includes(3)) {
-      return 'Three of a kind';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 3
+      );
+      return ['hand2', 'ThreeOfAKind', parseInt(numeroRepetido)];
     } else if (numRepeticiones.includes(2) && numNumerosDiferentes === 3) {
-      return 'Two pairs';
+      const numerosRepetidos = Object.keys(contadorNumeros).filter(
+        (numero) => contadorNumeros[numero] === 2
+      );
+      const numerosRepetidosNumericos = numerosRepetidos.map((num) =>
+        parseInt(num)
+      );
+      return [
+        'hand2',
+        'TwoPair',
+        numerosRepetidosNumericos[0],
+        numerosRepetidosNumericos[1],
+      ];
     } else if (numRepeticiones.includes(2)) {
-      return 'One pair';
+      const numeroRepetido = Object.keys(contadorNumeros).find(
+        (numero) => contadorNumeros[numero] === 2
+      );
+      return ['hand2', 'OnePair', parseInt(numeroRepetido)];
     } else {
-      return `Highest card: ${Math.max(...mano)}`;
+      return ['hand2', 'HighCard', Math.max(...mano)];
     }
   }
 

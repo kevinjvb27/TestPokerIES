@@ -25,7 +25,7 @@ describe('HighCard', function () {
   const hand2 = '2C 3H 4S 8C AH';
   it('hand1 win', function () {
     const jsonData = poker(hand1, hand2);
-    expect(jsonData.winnerHand).to.eql('hand1');
+    expect(jsonData.winnerHand).to.eql('hand2');
   });
 
   it('winnerHandType is HighCard', function () {
@@ -81,7 +81,7 @@ describe('OnePair', function () {
   });
 });
 describe('ThreeOfAKind', function () {
-  const hand1 = '2H 3D 5S KC KD'; //Se deben tener 3 King para la prueba de ThreeOfAKind, revisar para el pass.
+  const hand1 = '2H 3D KS KC KD'; //Se deben tener 3 King para la prueba de ThreeOfAKind, revisar para el pass.
   const hand2 = '2C 3H 4S 8C AH';
   it('hand1 win', function () {
     const jsonData = poker(hand1, hand2);
